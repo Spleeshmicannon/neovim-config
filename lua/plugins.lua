@@ -30,6 +30,14 @@ return require('packer').startup(function(use)
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'L3MON4D3/LuaSnip'},
 	  }
-  } 
+  }
+  use {
+	  -- Adds git related signs to the gutter, as well as utilities for managing changes
+	  'lewis6991/gitsigns.nvim' }
+  use { 'f-person/git-blame.nvim' }
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 end)
 
