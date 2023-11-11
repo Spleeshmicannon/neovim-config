@@ -14,3 +14,4 @@ require("plugin.lsp")
 require("plugin.gitsigns")
 require("plugin.line")
 require("plugin.blame")
+require("plugin.blankline"
