@@ -34,8 +34,8 @@ lsp_zero.format_on_save({
         ["pyright"] = { 'python' },
         ["clangd"] = { 'cpp', 'c' },
         ["lua_ls"] = { 'lua' },
-        ["rust_analyzer"] = { 'rs' },
-        ["taplo"] = { ".toml" },
+        ["rust_analyzer"] = { 'rust' },
+        ["taplo"] = { "toml" },
     }
 })
 
