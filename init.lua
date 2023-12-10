@@ -2,6 +2,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- plugins should come first
+require("plugins")
+
 -- plugin settings
 require("plugin.gruvbox")
 require("plugin.telescope")
@@ -16,5 +19,4 @@ require("plugin.blankline")
 
 -- raw config
 require("remap")
-require("plugins")
 require("options")
