@@ -5,6 +5,8 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
+    use { 'kkoomen/vim-doge', run = ':call doge#install()' }
+    use 'jiangmiao/auto-pairs'
     use 'wbthomason/packer.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',

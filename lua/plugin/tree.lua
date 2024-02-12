@@ -7,19 +7,19 @@ vim.opt.termguicolors = true
 
 
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+    local api = require "nvim-tree.api"
 
-  local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
 
-  -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
+    -- default mappings
+    api.config.mappings.default_on_attach(bufnr)
 
-  -- custom mappings
-  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  vim.keymap.set('n', '<C-x>',   api.node.open.vertical,              opts('Open: Vertical Split'))
-  vim.keymap.set('n', '<C-h>',   api.node.open.horizontal,            opts('Open: Horizontal Split'))
+    -- custom mappings
+    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+    vim.keymap.set('n', '<C-x>', api.node.open.vertical, opts('Open: Vertical Split'))
+    vim.keymap.set('n', '<C-h>', api.node.open.horizontal, opts('Open: Horizontal Split'))
 end
 
 
@@ -30,19 +30,23 @@ require("nvim-tree").setup({
     ---
     sort_by = "case_sensitive",
     view = {
-        width = 30,
+        width = 50,
     },
     renderer = {
         group_empty = false,
-        indent_markers = { enable = true,
-        inline_arrows = true,
-        icons = {
-            corner = "",
-            edge = "",
-            item = "",
-            bottom = "",
-            none = "",
-        }, }, }, filters = {
-            dotfiles = true,
+        indent_markers = {
+            enable = true,
+            inline_arrows = true,
+            icons = {
+                corner = "",
+                edge = "",
+                item = "",
+                bottom = "",
+                none = "",
+            },
         },
-    })
+    },
+    filters = {
+        dotfiles = true,
+    },
+})

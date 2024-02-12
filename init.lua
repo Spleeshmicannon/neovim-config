@@ -7,7 +7,6 @@ require("plugins")
 
 -- plugin settings
 require("plugin.gruvbox")
-require("plugin.telescope")
 require("plugin.tree")
 require("plugin.treesitter")
 require("plugin.fugitive")
