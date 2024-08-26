@@ -1,23 +1,36 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+  if not vim.uv.fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
 
-return require('packer').startup(function(use)
+  vim.opt.rtp:prepend(pckr_path)
+end
+
+bootstrap_pckr()
+
+require('pckr').add{
     -- Packer can manage itself
-    use { 'kkoomen/vim-doge', run = ':call doge#install()' }
-    use 'jiangmiao/auto-pairs'
-    use 'wbthomason/packer.nvim'
-    use {
+    { 'kkoomen/vim-doge', run = ':call doge#install()' };
+    'jiangmiao/auto-pairs';
+    {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-    use { "ellisonleao/gruvbox.nvim" }
-    use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
-    use { "nvim-tree/nvim-tree.lua" }
-    use { "nvim-tree/nvim-web-devicons" } -- icons don't seem to work
-    use { "tpope/vim-fugitive" }
-    use {
+    };
+    { "ellisonleao/gruvbox.nvim" };
+    { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } };
+    { "nvim-tree/nvim-tree.lua" };
+    { "nvim-tree/nvim-web-devicons" }; -- icons don't seem to work;
+    { "tpope/vim-fugitive" };
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
@@ -32,26 +45,26 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
         }
-    }
-    use {
+    };
+    {
         -- Adds git related signs to the gutter, as well as utilities for managing changes
-        'lewis6991/gitsigns.nvim' }
-    use { 'f-person/git-blame.nvim' }
-    use {
+        'lewis6991/gitsigns.nvim' };
+    { 'f-person/git-blame.nvim' };
+    {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-    use {
+    };
+    {
         "folke/which-key.nvim",
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
             require("which-key").setup {
                 -- your configuration comes here
-                -- or leave it empty to use the default settings
+                -- or leave it empty to the default settings
                 -- refer to the configuration section below
             }
         end
-    }
-    use "lukas-reineke/indent-blankline.nvim"
-end)
+    };
+    "lukas-reineke/indent-blankline.nvim";
+}
