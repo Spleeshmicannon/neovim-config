@@ -23,7 +23,8 @@ require('mason-lspconfig').setup({
         "clangd",
         "lua_ls",
         "rust_analyzer",
-        "taplo"
+        "taplo",
+        "zls"
     },
     handlers = {
         lsp_zero.default_setup,
@@ -45,6 +46,6 @@ require('mason-lspconfig').setup({
 --    }
 --})
 
+lsp_zero.setup_servers({ "pyright", 'cmake', 'clangd', 'lua_ls', 'zls', 'rust_analyzer' })
 
-
-lsp_zero.setup_servers({ "pyright", 'cmake', 'clangd', 'lua_ls' })
+vim.diagnostic.config({ virtual_text = true })

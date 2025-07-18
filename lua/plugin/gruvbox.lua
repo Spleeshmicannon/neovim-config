@@ -1,5 +1,4 @@
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
 
 -- Default options:
 require("gruvbox").setup({
@@ -27,3 +26,6 @@ require("gruvbox").setup({
     transparent_mode = false,
 })
 vim.cmd("colorscheme gruvbox")
+
+-- using terminal background
+vim.cmd([[hi Normal ctermbg=none guibg=none]])

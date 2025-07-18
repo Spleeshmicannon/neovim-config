@@ -30,6 +30,10 @@ require('pckr').add{
     { "nvim-tree/nvim-tree.lua" };
     { "nvim-tree/nvim-web-devicons" }; -- icons don't seem to work;
     { "tpope/vim-fugitive" };
+    { "sitiom/nvim-numbertoggle" };
+    { 'MeanderingProgrammer/render-markdown.nvim',
+        requires = { 'echasnovski/mini.nvim' }
+    };
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -67,4 +71,29 @@ require('pckr').add{
         end
     };
     "lukas-reineke/indent-blankline.nvim";
-}
+    {
+        "jakewvincent/texmagic.nvim",
+        config = function() 
+            require('texmagic').setup({
+                engines = {
+                    pdflatex = {    -- This has the same name as a default engine but would
+                                    -- be preferred over the same-name default if defined
+                        executable = "tectonic",
+                        args = {
+                            "%f"
+                        },
+                        isContinuous = false
+                    },
+                    lualatex = {    -- This is *not* one of the defaults, but it can be
+                                    -- called via magic comment if defined here
+                        executable = "tectonic",
+                        args = {
+                            "%f"
+                        },
+                        isContinuous = false
+                    }
+                }
+            })
+        end
+    }
+};
