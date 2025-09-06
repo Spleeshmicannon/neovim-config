@@ -46,6 +46,6 @@ require('mason-lspconfig').setup({
 --    }
 --})
 
-lsp_zero.setup_servers({ "pyright", 'cmake', 'clangd', 'lua_ls', 'zls', 'rust_analyzer' })
+-- lsp_zero.setup_servers({ "pyright", 'cmake', 'clangd', 'lua_ls', 'zls', 'rust_analyzer' })
 
 vim.diagnostic.config({ virtual_text = true })
