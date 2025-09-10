@@ -73,7 +73,7 @@ require('pckr').add{
     "lukas-reineke/indent-blankline.nvim";
     {
         "jakewvincent/texmagic.nvim",
-        config = function() 
+        config = function()
             require('texmagic').setup({
                 engines = {
                     pdflatex = {    -- This has the same name as a default engine but would
@@ -95,5 +95,12 @@ require('pckr').add{
                 }
             })
         end
-    }
+    };
+    {
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    };
 };
