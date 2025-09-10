@@ -15,6 +15,7 @@ require("plugin.gitsigns")
 require("plugin.line")
 require("plugin.blame")
 require("plugin.blankline")
+require("plugin.template")
 
 -- raw config
 require("remap")

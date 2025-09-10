@@ -1,6 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-local function bootstrap_pckr()
-  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
+local function bootstrap_pckr() local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
   if not vim.uv.fs_stat(pckr_path) then
     vim.fn.system({
@@ -103,4 +102,5 @@ require('pckr').add{
             "nvim-lua/plenary.nvim",
         },
     };
+    { 'glepnir/template.nvim' };
 };
