@@ -1,0 +1,33 @@
+return {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+        ensure_installed = {
+            "cmake",
+            -- "comment", -- comments are slowing down TS bigtime, so disable for now
+            "css",
+            "devicetree",
+            "gitcommit",
+            "gitignore",
+            "glsl",
+            "go",
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "cpp",
+            "python",
+            "rust",
+            "graphql",
+            "http",
+            "just",
+            "kconfig",
+            "meson",
+            "ninja",
+            "nix",
+            -- "org",
+            "sql",
+            "vue",
+            "wgsl",
+        },
+    },
+}
