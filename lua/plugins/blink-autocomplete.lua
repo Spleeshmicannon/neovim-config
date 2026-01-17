@@ -7,6 +7,7 @@ return {
     opts = {
         keymap = {
             preset = "default",
+            ["<TAB>"] = { function(cmp) cmp.accept({ index = 1 }) end}
         },
         appearance = {
             use_nvim_cmp_as_default = true
